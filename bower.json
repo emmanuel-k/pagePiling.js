@@ -1,7 +1,8 @@
 {
-  "name": "pagePiling.js",
+  "name": "carousso.js",
   "homepage": "https://github.com/alvarotrigo/pagePiling.js",
   "authors": [
+    "Emmanuel KWENE https://github.com/mystroken",
     "Alvaro Trigo https://github.com/alvarotrigo"
   ],
   "description": "Create a beautiful scrolling pile of pages",

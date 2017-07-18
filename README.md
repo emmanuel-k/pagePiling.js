@@ -1,5 +1,5 @@
 # pagePiling.js
-
+-
 ![preview](https://raw.github.com/alvarotrigo/pagePiling.js/master/examples/imgs/pagePiling-plugin.png)
 ![compatibility](https://raw.github.com/alvarotrigo/pagePiling.js/master/examples/imgs/compatible.gif)
 Pile your sections one over another and access them scrolling or by URL!
@@ -25,6 +25,10 @@ It works with browsers with CSS3 support and with the ones which don't have it, 
 
 It is also designed to work on touch devices such as mobile phones or tablets.
 
+[![Browserstack](http://wallpapers-for-ipad.com/fullpage/imgs3/logos/browserstack2.png)](http://www.browserstack.com/)
+
+Special thanks to [Browserstack](http://www.browserstack.com/) for supporting pagePiling.js.
+
 ## Usage
 As you can see in the example files, you will need to include the JavaScript file `jquery.pagepiling.js` (or the minified version `jquery.pagepiling.min.js`) and the css file `jquery.pagepiling.css` of the plugin, as well as [jQuery](http://jquery.com/). Optionally, you can add the [jQuery UI library](http://jqueryui.com/) in case you want to use other easing effects apart from the ones included in the jQuery library which are the `linear` or `swing` effects.
 
@@ -35,7 +39,7 @@ Terminal:
 bower install pagepiling.js
 ```
 
-###Including files:
+### Including files:
 ```html
 <link rel="stylesheet" type="text/css" href="jquery.pagepiling.css" />
 
@@ -43,7 +47,10 @@ bower install pagepiling.js
 <script type="text/javascript" src="jquery.pagepiling.js"></script>
 ```
 
-###Required HTML structure
+### Optional use of CDN
+If you prefer to use a CDN to load the needed files, pagePiling.js is in CDNJS: https://cdnjs.com/libraries/pagePiling.js
+
+### Required HTML structure
 Each section will be defined with a `div` containing the `section` class.
 The active section by default will be the first section, which is taken as the home page.
 ```html
@@ -55,7 +62,7 @@ The active section by default will be the first section, which is taken as the h
 </div>
 ```
 
-###Initialization
+### Initialization
 All you need to do is call the plugin inside a `$(document).ready` function:
 
 ```javascript
@@ -232,7 +239,7 @@ $.fn.pagepiling.setScrollingSpeed(700);
 
 
 ## Callbacks
-###afterLoad (`anchorLink`, `index`)
+### afterLoad (`anchorLink`, `index`)
 Callback fired once the sections have been loaded, after the scrolling has ended.
 Parameters:
 
@@ -261,7 +268,7 @@ Example:
 	});
 ```
 
-###onLeave (`index`, `nextIndex`, `direction`)
+### onLeave (`index`, `nextIndex`, `direction`)
 This callback is fired once the user leaves a section, in the transition to the new section.
 
 Parameters:
@@ -288,7 +295,7 @@ Example:
 ```
 
 
-###afterRender()
+### afterRender()
 This callback is fired just after the structure of the page is generated. This is the callback you want to use to initialize other plugins or fire any code which requires the document to be ready (as this plugin modifies the DOM to create the resulting structure).
 
 Example:
@@ -310,8 +317,12 @@ Example:
 If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotrigo.com">contact me</a> with the URL.
 
 [![Facebook](http://wallpapers-for-ipad.com/fullpage/imgs3/logos/facebook-pagepiling.gif)](http://www.facebookgroups.com/)
+[![WaltDisney](http://wallpapers-for-ipad.com/fullpage/imgs3/logos/waltDisney.gif)](http://waltdisney.org/galleries)
+[![Logitech](http://wallpapers-for-ipad.com/fullpage/imgs3/logos/logitech.gif)](http://www.logitech.com/en-gb)
 
 - http://www.facebookgroups.com/
+- http://waltdisney.org/galleries
+- http://www.logitech.com/en-gb
 - http://www.adigoodrich.com/
 - https://number26.de/
 - http://fngeats.com/
@@ -320,6 +331,7 @@ If you want your page to be listed here. Please <a href="mailto:alvaro@alvarotri
 - http://netstorage.com.br/nucs/nucs.html
 - http://aungthurhahein.me/
 - http://mannydesigns.co
+- http://www.unwander.com/
 
 ## Donations
 Donations would be more than welcome :)
