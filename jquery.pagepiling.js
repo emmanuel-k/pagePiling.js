@@ -31,7 +31,8 @@
             sectionsColor: [],
             anchors: [],
             scrollingSpeed: 700,
-            waitBeforeScroll: 0,
+            waitBeforeScrollBack: 0,
+            waitBeforeScrollNext: 0,
             asynchronousCall: null,
             easing: 'easeInQuart',
             loopBottom: false,
@@ -243,7 +244,7 @@
          */
         function scrollPage(destination, animated) {
 
-            if(options.asynchronousCall !== null) return;
+            if(options.asynchronousCall != null) return false;
 
             var v ={
                 destination: destination,
@@ -267,19 +268,24 @@
                 setURLHash(v.anchorLink, v.sectionIndex);
             }
 
-            v.destination.addClass('active').siblings().removeClass('active');
+            //v.destination.addClass('active').siblings().removeClass('active');
 
             v.sectionsToMove = getSectionsToMove(v);
+
+            var timeBeforeScroll = 0;
 
             //scrolling down (moving sections up making them disappear)
             if (v.yMovement === 'down') {
                 v.translate3d = getTranslate3d();
                 v.scrolling = '-100%';
 
+                // Scrolling to next
+                timeBeforeScroll = options.waitBeforeScrollNext;
+
                 if(!options.css3){
                     v.sectionsToMove.each(function(index){
                         if(index != v.activeSection.index('.pp-section')){
-                            $(this).css(getScrollProp(v.scrolling));
+                           // $(this).css(getScrollProp(v.scrolling));
                         }
                     });
                 }
@@ -292,6 +298,9 @@
                 v.translate3d = 'translate3d(0px, 0px, 0px)';
                 v.scrolling = '0';
 
+                // Scrolling back
+                timeBeforeScroll = options.waitBeforeScrollBack;
+
                 v.animateSection = destination;
             }
 
@@ -299,18 +308,24 @@
 
             options.asynchronousCall = window.setTimeout(function () {
 
-                performMovement(v);
+                //performMovement(v);
 
                 activateMenuElement(v.anchorLink);
                 activateNavDots(v.anchorLink, v.sectionIndex);
                 lastScrolledDestiny = v.anchorLink;
 
+                v.destination.addClass('active').siblings().removeClass('active');
+                setTimeout(function () {
+                    afterSectionLoads(v);
+                }, options.scrollingSpeed);
+
                 var timeNow = new Date().getTime();
                 lastAnimation = timeNow;
+
                 window.clearTimeout(options.asynchronousCall);
                 options.asynchronousCall = null;
 
-            }, options.waitBeforeScroll);
+            }, timeBeforeScroll);
         }
 
         /**
