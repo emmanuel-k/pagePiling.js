@@ -7,7 +7,7 @@
   ],
   "description": "Create a beautiful scrolling pile of pages",
   "main": [
-    "jquery.pagepiling.min.js",
+    "jquery.pagepiling.js",
     "jquery.pagepiling.css"
   ],
   "keywords": [
